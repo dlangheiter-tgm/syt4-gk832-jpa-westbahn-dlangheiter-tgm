@@ -7,6 +7,7 @@ import javax.validation.constraints.Email;
 public class Benutzer {
 
 	@Id
+	@GeneratedValue
 	private Long ID;
 
 	private String vorName;
@@ -25,7 +26,7 @@ public class Benutzer {
 	@OneToMany
 	private Ticket[] tickets;
 
-	@ManyToMany
+	@OneToMany
 	private Reservierung[] reservierungen;
 
 }
