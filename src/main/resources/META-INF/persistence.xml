@@ -9,6 +9,12 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>model.Bahnhof</class>
+        <class>model.Benutzer</class>
+        <class>model.Strecke</class>
+        <class>model.Zug</class>
+        <class>model.Ticket</class>
+        <class>model.Einzelticket</class>
+        <class>model.Zeitkarte</class>
 
         <properties>
             <!--
