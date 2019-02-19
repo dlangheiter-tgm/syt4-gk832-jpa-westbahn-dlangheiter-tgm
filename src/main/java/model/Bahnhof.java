@@ -30,6 +30,8 @@ public class Bahnhof {
 	@Type(type="yes_no")
 	private boolean kopfBahnhof;
 
+	public Bahnhof() {}
+
 	public Bahnhof(String name, int absPreisEntfernung, int absKmEntfernung, int absZeitEntfernung,
 			boolean kopfBahnhof) {
 		super();
