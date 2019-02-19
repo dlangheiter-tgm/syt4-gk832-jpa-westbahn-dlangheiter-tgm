@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.Collection;
 
 @Entity
 public class Benutzer {
@@ -24,9 +25,9 @@ public class Benutzer {
 	private Long verbuchtePraemienMeilen;
 
 	@OneToMany
-	private Ticket[] tickets;
+	private Collection<Ticket> tickets;
 
 	@OneToMany
-	private Reservierung[] reservierungen;
+	private Collection<Reservierung> reservierungen;
 
 }

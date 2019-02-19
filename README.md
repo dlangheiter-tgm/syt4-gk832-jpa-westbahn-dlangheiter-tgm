@@ -12,6 +12,9 @@ Annotations:
 * `@ManyToOne`
 * `@ManyToMany`
 * `@OneToMany`
+* `@Email`
+* `@Column`
+* `@Transient`
 
 Inline Queries OO Variante
 

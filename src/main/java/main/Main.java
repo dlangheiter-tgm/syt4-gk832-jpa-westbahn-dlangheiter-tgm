@@ -6,11 +6,7 @@ import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -25,7 +21,7 @@ import model.*;
 public class Main {
 
 	private static final Logger log = Logger.getLogger(Main.class);
-
+	@PersistenceUnit(unitName = "westbahn")
 	private static EntityManagerFactory sessionFactory;
 	@PersistenceContext
 	private static EntityManager entitymanager;
