@@ -1,3 +1,5 @@
+package model;
+
 public class Maestro implements Zahlung {
 
 

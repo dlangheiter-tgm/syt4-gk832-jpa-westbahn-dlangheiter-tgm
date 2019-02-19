@@ -1,3 +1,7 @@
+package model;
+
+import sun.security.krb5.internal.Ticket;
+
 public class Benutzer {
 
 	private Long ID;
