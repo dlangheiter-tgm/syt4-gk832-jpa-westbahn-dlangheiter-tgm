@@ -93,4 +93,19 @@ public class Reservierung {
 	public void setZahlung(Zahlung zahlung) {
 		this.zahlung = zahlung;
 	}
+
+	@Override
+	public String toString() {
+		return "Reservierung{" +
+				"ID=" + ID +
+				", datum=" + datum +
+				", praemienMeilenBonus=" + praemienMeilenBonus +
+				", preis=" + preis +
+				", status=" + status +
+				", zug=" + zug +
+				", strecke=" + strecke +
+				", benutzer=" + benutzer +
+				", zahlung=" + zahlung +
+				'}';
+	}
 }

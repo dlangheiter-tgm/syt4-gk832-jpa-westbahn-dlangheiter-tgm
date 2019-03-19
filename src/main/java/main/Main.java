@@ -40,6 +40,7 @@ public class Main {
 		BasicConfigurator.configure();
 		
 		try {
+			Logger.getLogger("org.hibernate").setLevel(Level.OFF);
 			log.info("Starting \"Mapping Perstistent Classes and Associations\" (task1)");
 			sessionFactory = Persistence.createEntityManagerFactory("westbahn");
 			entitymanager = sessionFactory.createEntityManager();
@@ -76,25 +77,50 @@ public class Main {
 		list.add(new Bahnhof("Wels-Zentrum", 102, 400, 250, true));
 		for (Bahnhof b : list)
 			em.persist(b);
+
+		em.flush();
+		em.getTransaction().commit();
+		em.getTransaction().begin();
+
+		Strecke strecke = new Strecke();
+		strecke.setStart(list.get(0));
+		strecke.setEnde(list.get(1));
+
+		em.persist(strecke);
+		em.flush();
+		em.getTransaction().commit();
+		em.getTransaction().begin();
+
+		Benutzer benutzer = new Benutzer();
+		benutzer.setVorName("David");
+		benutzer.setNachName("Langheiter");
+		benutzer.seteMail("david@langheiter.com");
+		benutzer.setPasswort("thisisapassword");
+		benutzer.setVerbuchtePraemienMeilen(40L);
+
+		em.persist(benutzer);
+
+		em.flush();
+		em.getTransaction().commit();
+		em.getTransaction().begin();
+
+		Reservierung reservierung = new Reservierung();
+		reservierung.setBenutzer(benutzer);
+
+		em.persist(reservierung);
+
+		Reservierung r2 = new Reservierung();
+		em.persist(r2);
+
+		Reservierung r3 = new Reservierung();
+		r3.setBenutzer(benutzer);
+		em.persist(r3);
+
 		em.flush();
 		em.getTransaction().commit();
 	}
 
 	public static void task01() throws ParseException, InterruptedException {
-		Reservierung r = new Reservierung();
-
-		r.setDatum(new Date());
-		r.setPraemienMeilenBonus(0);
-		r.setPreis(0);
-		r.setStatus(StatusInfo.ONTIME);
-		r.setZug(null);
-		r.setStatus(null);
-		r.setBenutzer(null);
-
-		entitymanager.getTransaction().begin();
-		entitymanager.persist(r);
-		entitymanager.flush();
-		entitymanager.getTransaction().commit();
 	}
 
 	public static <T> void task02() throws ParseException {
@@ -112,6 +138,14 @@ public class Main {
 	}
 
 	public static void task02a() throws ParseException {
+		List<Reservierung> res = entitymanager.createNamedQuery("Benutzer.getReservierungenByEmail")
+				.setParameter("email", "david@langheiter.com")
+				.getResultList();
+
+		System.out.println("RESERVIERUNGEN");
+		for (Reservierung r : res) {
+			System.out.println("Reservierung: " + r);
+		}
 	}
 
 	public static void task02b() throws ParseException {

@@ -17,7 +17,9 @@
 
         <many-to-one name="zug" class="model.Zug" />
         <many-to-one name="strecke" class="model.Strecke" />
-        <one-to-one name="benutzer" class="model.Benutzer" />
+        <many-to-one name="benutzer" class="model.Benutzer">
+                <column name="benutzer" />
+        </many-to-one>
 
     </class>
 </hibernate-mapping>
