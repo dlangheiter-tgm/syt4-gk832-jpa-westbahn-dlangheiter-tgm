@@ -2,6 +2,7 @@ package main;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import javafx.stage.Stage;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.BasicConfigurator;
@@ -79,6 +81,20 @@ public class Main {
 	}
 
 	public static void task01() throws ParseException, InterruptedException {
+		Reservierung r = new Reservierung();
+
+		r.setDatum(new Date());
+		r.setPraemienMeilenBonus(0);
+		r.setPreis(0);
+		r.setStatus(StatusInfo.ONTIME);
+		r.setZug(null);
+		r.setStatus(null);
+		r.setBenutzer(null);
+
+		entitymanager.getTransaction().begin();
+		entitymanager.persist(r);
+		entitymanager.flush();
+		entitymanager.getTransaction().commit();
 	}
 
 	public static <T> void task02() throws ParseException {

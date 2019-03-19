@@ -54,17 +54,17 @@ Schreiben Sie für alle oben definierten Klassen und Relationen entsprechende Hi
 ### Task 2 - Named Queries
 Schreiben Sie folgende NamedQueries (kein plain SQL und auch keine Inline-Queries) für das Domänenmodell aus Task1. Die Queries sollen die entsprechenden Parameter akzeptieren und die gewünschten Typen zurückliefern:
 
-a) Finde alle Reservierungen für einen bestimmten Benutzer, der durch die eMail-Adresse definiert wird.
-b) Liste alle Benutzer auf, die eine Monatskarte besitzen.
-c) Liste alle Tickets für eine bestimmte Strecke aus (durch Anfangs- und Endbahnhof definiert), wo keine Reservierungen durchgeführt wurden.
+a) Finde alle Reservierungen für einen bestimmten Benutzer, der durch die eMail-Adresse definiert wird.  
+b) Liste alle Benutzer auf, die eine Monatskarte besitzen.  
+c) Liste alle Tickets für eine bestimmte Strecke aus (durch Anfangs- und Endbahnhof definiert), wo keine Reservierungen durchgeführt wurden.  
 
 ### Task 3 - Validierung
 Alle Constraints der einzelnen Entitäten sollen verifiziert werden. Hierfür soll die Bean Validation API verwendet werden. Folgende Einschränkungen sollen überprüft werden:
 
-a) Zug und Strecke können nicht denselben Start- und Endbahnhof besitzen.
-b) Die eMail des Benutzers soll ein gängiges eMail-Pattern befolgen.
-c) Die Startzeit eines Sonderangebotes kann nicht in der Vergangenheit liegen.
-d) Der Name eines Bahnhofs darf nicht kürzer als zwei und nicht länger als 150 Zeichen sein. Sonderzeichen sind bis auf den Bindestrich zu unterbinden.
+a) Zug und Strecke können nicht denselben Start- und Endbahnhof besitzen.  
+b) Die eMail des Benutzers soll ein gängiges eMail-Pattern befolgen.  
+c) Die Startzeit eines Sonderangebotes kann nicht in der Vergangenheit liegen.  
+d) Der Name eines Bahnhofs darf nicht kürzer als zwei und nicht länger als 150 Zeichen sein. Sonderzeichen sind bis auf den Bindestrich zu unterbinden.  
 
 ## Bewertung
 

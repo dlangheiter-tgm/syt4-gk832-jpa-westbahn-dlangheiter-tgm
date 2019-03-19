@@ -10,7 +10,7 @@
              <generator class="native" />
         </id>
 
-        <property name="datum" />
+        <property name="datum" type="timestamp"/>
         <property name="praemienMeilenBonus" />
         <property name="preis" />
         <property name="status" />
