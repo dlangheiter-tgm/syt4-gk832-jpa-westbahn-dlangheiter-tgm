@@ -9,7 +9,14 @@ import java.util.Collection;
 
 
 @Entity
-@NamedQuery(name="Benutzer.getReservierungenByEmail", query = "SELECT reservierungen FROM Benutzer WHERE eMail=:email")
+@NamedQuery(
+		name="Benutzer.getReservierungenByEmail",
+		query = "SELECT reservierungen FROM Benutzer WHERE eMail=:email"
+)
+@NamedQuery(
+		name = "Benutzer.getAllWithMonatskarte",
+		query = "SELECT b FROM Benutzer b LEFT JOIN b.tickets t WHERE t.typ=1" // ZeitkartenTyp.MONATSKARTE = 1
+)
 public class Benutzer {
 
 	@Id

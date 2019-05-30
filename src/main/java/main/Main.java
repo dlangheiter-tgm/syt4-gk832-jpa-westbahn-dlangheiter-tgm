@@ -138,13 +138,16 @@ public class Main {
 
 		List<?> l = q.getResultList();
 
+		System.out.println("\nBAHNHOEFE");
+		System.out.println("-------------------------------");
 		for (Object b : l) {
 			Bahnhof bhf = null;
 			if (b instanceof Bahnhof) {
 				bhf = (Bahnhof) b;
-				System.out.println("Bahnhof: " + bhf.getName());
+				System.out.println(bhf.getName());
 			}
 		}
+		System.out.println("-------------------------------");
 	}
 
 	public static void task02a() throws ParseException {
@@ -152,13 +155,23 @@ public class Main {
 				.setParameter("email", "david@langheiter.com")
 				.getResultList();
 
-		System.out.println("RESERVIERUNGEN");
+		System.out.println("\nRESERVIERUNGEN");
+		System.out.println("-------------------------------");
 		for (Reservierung r : res) {
-			System.out.println("Reservierung: " + r);
+			System.out.println(r);
 		}
+		System.out.println("-------------------------------");
 	}
 
 	public static void task02b() throws ParseException {
+		List<Benutzer> benutzer = entitymanager.createNamedQuery("Benutzer.getAllWithMonatskarte").getResultList();
+
+		System.out.println("\nUSERS with Monatskarte");
+		System.out.println("-------------------------------");
+		for (Benutzer b : benutzer) {
+			System.out.println(b);
+		}
+		System.out.println("-------------------------------");
 	}
 
 	public static void task02c() throws ParseException {

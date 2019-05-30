@@ -28,3 +28,4 @@ Man **muss** in der `persistence.xml` `<class>model.Bahnhof</class>` hinzufgen d
 Hibernate das Model erkennt.
 
 ## Quellen
+* [LEFT JOIN](https://www.objectdb.com/java/jpa/query/jpql/from#LEFT_OUTER_JOIN_)

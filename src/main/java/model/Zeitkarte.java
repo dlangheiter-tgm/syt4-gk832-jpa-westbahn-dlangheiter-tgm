@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import java.util.Date;
 
 @Entity
