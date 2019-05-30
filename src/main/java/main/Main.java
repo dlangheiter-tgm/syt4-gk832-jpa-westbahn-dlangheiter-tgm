@@ -2,10 +2,7 @@ package main;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Set;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.*;
 import javax.validation.ConstraintViolation;
@@ -91,14 +88,27 @@ public class Main {
 		em.getTransaction().commit();
 		em.getTransaction().begin();
 
+		Zeitkarte monatsKarte = new Zeitkarte();
+		monatsKarte.setTyp(ZeitkartenTyp.MONATSKARTE);
+		em.persist(monatsKarte);
+
+		Collection<Ticket> tickets = new ArrayList<>();
+		tickets.add(monatsKarte);
+
 		Benutzer benutzer = new Benutzer();
 		benutzer.setVorName("David");
 		benutzer.setNachName("Langheiter");
 		benutzer.seteMail("david@langheiter.com");
 		benutzer.setPasswort("thisisapassword");
 		benutzer.setVerbuchtePraemienMeilen(40L);
+		benutzer.setTickets(tickets);
 
 		em.persist(benutzer);
+
+		Benutzer benutzer2 = new Benutzer();
+		benutzer2.setVorName("Benjamin");
+		benutzer2.setNachName("Bulis");
+		benutzer2.seteMail("bbulis@student.tgm.ac.at");
 
 		em.flush();
 		em.getTransaction().commit();
